@@ -1,0 +1,13 @@
+name = "MVApp"
+uuid = "7c12c040-3d97-4838-8b78-f35d95c2d528"
+authors = ["Yusri Dwi Heryanto"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
