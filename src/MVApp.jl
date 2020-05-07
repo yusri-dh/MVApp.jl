@@ -33,4 +33,7 @@ export mesh_reorientation,
 
 include("fileIO.jl")
 export load_mesh, save_mesh, create_group_df
+
+include("main.jl")
+export main
 end # module

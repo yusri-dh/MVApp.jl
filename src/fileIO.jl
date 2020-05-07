@@ -10,7 +10,9 @@ function create_group_df(data_folder)
     gda = CSV.read(fname2)[!,[:cellid,:trackid,:x,:y,:z,:t]]
     n_sample =size(gda,1)
     rename!(cor_gc_gda,[:cellid,:t,:gc_cellid])
-    df = join(gda,cor_gc_gda,on=[:t,:cellid],kind=:inner)
+    # df = join(gda,cor_gc_gda,on=[:t,:cellid],kind=:inner)
+    df = innerjoin(gda,cor_gc_gda,on=[:t,:cellid])
+
     dropmissing!(df)
     df[!,:t] = convert.(Float64,df[!,:t])
     return df
