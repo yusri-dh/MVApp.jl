@@ -1,6 +1,7 @@
 using MVApp
 using Test
-
-@testset "MVApp.jl" begin
-    # Write your own tests here.
+include("test_utils_movement.jl")
+@testset "MovingFrame.jl" begin
+    test_standardize()
+    test_gradient()
 end
