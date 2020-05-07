@@ -3,6 +3,10 @@ function test_standardize()
     mat2 = [-1. -1.; -1. -1.; 1. 1.; 1. 1.]
     @test isapprox(MVApp.standardize(mat1), mat2)
     @test isapprox(MVApp.reverse_standardization(mat2,mat1),mat1)
+    mat3 = ones(3,2)
+    mat4 = zeros(3,2)
+    @test isapprox(MVApp.standardize(mat3), mat4)
+    @test isapprox(MVApp.reverse_standardization(mat4,mat3),mat3)
 end
 
 function test_gradient()
