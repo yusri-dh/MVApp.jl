@@ -9,6 +9,7 @@ using GeometryBasics
 # using SparseArrays
 using DataFrames
 using CSV
+using MeshIO
 using FileIO: load, save
 include("./utils_movement.jl")
 export standardize, reverse_standardization
@@ -36,4 +37,28 @@ export load_mesh, save_mesh, create_group_df
 
 include("main.jl")
 export main
+# function real_main()
+#     data_folder = ARGS[1];
+#     track_id = parse(Int,ARGS[2]);
+#     t_start = parse(Int,ARGS[3]);
+#     t_end = parse(Int,ARGS[4]);
+#     main(data_folder,track_id,t_start,t_end)
+# end
+function julia_main()
+    try
+        data_folder = ARGS[1];
+        track_id = parse(Int,ARGS[2]);
+        t_start = parse(Int,ARGS[3]);
+        t_end = parse(Int,ARGS[4]);
+        main(data_folder,track_id,t_start,t_end)
+    catch
+        Base.invokelatest(Base.display_error, Base.catch_stack())
+        return 1
+    end
+    return 0
+end
+
+if abspath(PROGRAM_FILE) == @__FILE__
+    julia_main()
+end
 end # module
