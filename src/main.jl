@@ -1,6 +1,7 @@
 function _save_shapes!(shapes::Vector{<:Mesh}, dir_name)
     for i in eachindex(shapes)
-        fname = "t" * string(i) * ".ply"
+        fname = lpad(i,4,"0")
+        fname = "t" * fname * ".ply"
         shape = shapes[i]
         save_mesh(joinpath(dir_name, fname), shape)
     end
