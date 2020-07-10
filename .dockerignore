@@ -1,0 +1,7 @@
+.*
+docs
+mkdocs.yml
+docker-compose.yml
+*.md
+!README.md
+MVApp_plus.so

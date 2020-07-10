@@ -16,8 +16,14 @@ function main(data_folder::String, track_id::Int, t_start::Int, t_end::Int)
     coordinate = cell.coordinates
     length_step = 0.01
     add_moving_frame_data!(cell, step = length_step)
-    selected_df =
-        filter(row -> (row.trackid == track_id) & (t0 <= row.t <= t1), df)
+    if t0 == t1 == -1.0
+        selected_df = filter(row -> row[:trackid] == track_id, df)
+    else
+        @assert t1 > t0 >= 1.0
+        selected_df =
+            filter(row -> (row.trackid == track_id) & (t0 <= row.t <= t1), df)
+    end
+    
     shape_folder = joinpath(data_folder, "shape")
     add_shape_data!(cell, selected_df, data_dir = shape_folder)
     str_t0::String = string(t0)

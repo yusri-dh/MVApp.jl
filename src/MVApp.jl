@@ -47,6 +47,7 @@ export main
 function julia_main()
     try
         data_folder = ARGS[1];
+        # data_folder = realpath(data_folder)
         track_id = parse(Int,ARGS[2]);
         t_start = parse(Int,ARGS[3]);
         t_end = parse(Int,ARGS[4]);
