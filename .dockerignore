@@ -5,3 +5,5 @@ docker-compose.yml
 *.md
 !README.md
 MVApp_plus.so
+# data/0429/**/*
+# data/0429

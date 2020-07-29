@@ -23,8 +23,8 @@ function main(data_folder::String, track_id::Int, t_start::Int, t_end::Int)
         selected_df =
             filter(row -> (row.trackid == track_id) & (t0 <= row.t <= t1), df)
     end
-    
-    shape_folder = joinpath(data_folder, "shape")
+
+    shape_folder = joinpath(data_folder, "hires")
     add_shape_data!(cell, selected_df, data_dir = shape_folder)
     str_t0::String = string(t0)
     str_t1::String = string(t1)

@@ -48,14 +48,19 @@ function julia_main()
     try
         data_folder = ARGS[1];
         # data_folder = realpath(data_folder)
-        track_id = parse(Int,ARGS[2]);
-        t_start = parse(Int,ARGS[3]);
-        t_end = parse(Int,ARGS[4]);
-        main(data_folder,track_id,t_start,t_end)
+        t_start = parse(Int,ARGS[2]);
+        t_end = parse(Int,ARGS[3]);
+        track_ids = ARGS[4:end];
+        for i in track_ids
+            track_id = parse(Int,i)
+            main(data_folder,track_id,t_start,t_end)
+        end
     catch
         Base.invokelatest(Base.display_error, Base.catch_stack())
+        println("Error")
         return 1
     end
+    println("Success")
     return 0
 end
 

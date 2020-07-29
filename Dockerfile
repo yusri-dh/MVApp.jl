@@ -13,8 +13,10 @@ COPY ./ ./
 # CMD ["echo", "hello"]
 RUN julia  --project create_sysimage.jl -O3
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ./data/0429
-# CMD ["julia" "--project" "--startup-file=no" "--color=yes" "-e"]
-CMD ["./MVApp.sh"]
+# CMD ["bash"]
+# CMD ["./MVApp.sh"]
+ENTRYPOINT [ "julia", "--project", "--startup-file=no", "./script.jl", "./target"]
+CMD ["0"]
 
 
 

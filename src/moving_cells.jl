@@ -84,7 +84,6 @@ function extract_shape_data(df; data_dir = pwd())
         fname = joinpath(
             data_dir,
             "t" * lpad(t[i], 4, "0"),
-            "obj0",
             "cell" * lpad(gc_cell_id[i], 5, "0") * ".obj",
         )
         # @show fname

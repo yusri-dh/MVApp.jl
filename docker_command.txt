@@ -1,1 +1,1 @@
-docker run --rm -it -v  /home/yusri/MVApp/data/0429:/mvapp/target mvapp:test bash ./MVApp.sh ./target 97 2 8
+docker run --rm -it -v  /home/yusri/MVApp/data/0429:/mvapp/target mvapp:test 2 8 97 56
